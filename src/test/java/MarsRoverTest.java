@@ -58,6 +58,30 @@ public class MarsRoverTest {
         String expectedStatus = "0:0:W";
         assertEquals(expectedStatus, actualStatus);
     }
+    @Test
+    public void should_face_east_when_orient_south_and_turn_left() {
+        MarsRover rover = new MarsRover();
+        rover.setDirection('S');
+        String actualStatus = rover.executeCommand("L");
+        String expectedStatus = "0:0:E";
+        assertEquals(expectedStatus, actualStatus);
+    }
+    @Test
+    public void should_face_north_when_orient_east_and_turn_left() {
+        MarsRover rover = new MarsRover();
+        rover.setDirection('E');
+        String actualStatus = rover.executeCommand("L");
+        String expectedStatus = "0:0:N";
+        assertEquals(expectedStatus, actualStatus);
+    }
+    @Test
+    public void should_face_south_when_orient_west_and_turn_left() {
+        MarsRover rover = new MarsRover();
+        rover.setDirection('W');
+        String actualStatus = rover.executeCommand("L");
+        String expectedStatus = "0:0:S";
+        assertEquals(expectedStatus, actualStatus);
+    }
 
 
 }
