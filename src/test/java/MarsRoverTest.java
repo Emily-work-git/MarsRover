@@ -119,6 +119,18 @@ public class MarsRoverTest {
         String expectedStatus = "0:0:N";
         assertEquals(expectedStatus, actualStatus);
     }
-
+// Test moveForward
+    //Given Position = (0,0,N), Command = M When execute marsRoverController Then Position = (0,1,N)
+    //Given Position = (0,0,S), Command = M When execute marsRoverController Then Position = (0,-1,S)
+    //Given Position = (0,0,E), Command = M When execute marsRoverController Then Position = (1,0,E)
+    //Given Position = (0,0,W), Command = M When execute marsRoverController Then Position = (-1,0,W)
+    @Test
+    public void should_add1toy_when_facing_north_and_move_forward(){
+        MarsRover rover = new MarsRover();
+        rover.setDirection('N');
+        String actualStatus = rover.executeCommand("M");
+        String expectedStatus = "0,1,N";
+        assertEquals(expectedStatus, actualStatus);
+    }
 
 }
