@@ -12,4 +12,7 @@ package org.example;public class MarsRover {
     public String showStatus() {
         return x + ":" + y + ":" + direction;
     }
+    public void setDirection(char newDirection){
+        this.direction = newDirection;
+    }
 }
