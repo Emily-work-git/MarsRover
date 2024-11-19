@@ -23,6 +23,10 @@ package org.example;public class MarsRover {
                     int newDirectionIndex = i==0? directions.length - 1: i-1;
                     setDirection(directions[newDirectionIndex]);
                 }
+                else if (command.equals("R")) {
+                    int newDirectionIndex = (i+1) % directions.length;
+                    setDirection(directions[newDirectionIndex]);
+                }
                 break;
             }
         };
