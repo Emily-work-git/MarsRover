@@ -121,15 +121,39 @@ public class MarsRoverTest {
     }
 // Test moveForward
     //Given Position = (0,0,N), Command = M When execute marsRoverController Then Position = (0,1,N)
-    //Given Position = (0,0,S), Command = M When execute marsRoverController Then Position = (0,-1,S)
     //Given Position = (0,0,E), Command = M When execute marsRoverController Then Position = (1,0,E)
+    //Given Position = (0,0,S), Command = M When execute marsRoverController Then Position = (0,-1,S)
     //Given Position = (0,0,W), Command = M When execute marsRoverController Then Position = (-1,0,W)
     @Test
-    public void should_add1toy_when_facing_north_and_move_forward(){
+    public void should_add_1_to_y_when_facing_north_and_move_forward(){
         MarsRover rover = new MarsRover();
         rover.setDirection('N');
         String actualStatus = rover.executeCommand("M");
-        String expectedStatus = "0,1,N";
+        String expectedStatus = "0:1:N";
+        assertEquals(expectedStatus, actualStatus);
+    }
+    @Test
+    public void should_add_1_to_x_when_facing_east_and_move_forward(){
+        MarsRover rover = new MarsRover();
+        rover.setDirection('E');
+        String actualStatus = rover.executeCommand("M");
+        String expectedStatus = "1:0:E";
+        assertEquals(expectedStatus, actualStatus);
+    }
+    @Test
+    public void should_minus_1_from_y_when_facing_south_and_move_forward(){
+        MarsRover rover = new MarsRover();
+        rover.setDirection('S');
+        String actualStatus = rover.executeCommand("M");
+        String expectedStatus = "0:-1:S";
+        assertEquals(expectedStatus, actualStatus);
+    }
+    @Test
+    public void should_minus_1_from_x_when_facing_west_and_move_forward(){
+        MarsRover rover = new MarsRover();
+        rover.setDirection('W');
+        String actualStatus = rover.executeCommand("M");
+        String expectedStatus = "-1:0:W";
         assertEquals(expectedStatus, actualStatus);
     }
 
