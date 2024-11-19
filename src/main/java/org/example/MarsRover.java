@@ -15,8 +15,28 @@ package org.example;public class MarsRover {
     public void setDirection(char newDirection){
         this.direction = newDirection;
     }
+
+    public void moveForward(){
+        switch(direction){
+            case 'N':
+                this.y+=1;break;
+            case 'E':
+                this.x+=1;break;
+            case 'S':
+                this.y-=1;break;
+            case 'W':
+                this.x-=1;break;
+            default:
+                break;
+        }
+    }
+
     public String executeCommand(String command) {
         char[] directions = {'N', 'E', 'S', 'W'};
+        if (command.equals("M")) {
+            this.moveForward();
+            return showStatus();
+        }
         for (int i = 0; i < directions.length; i++) {
             if (directions[i] == direction) {
                 if (command.equals("L")) {
@@ -32,4 +52,5 @@ package org.example;public class MarsRover {
         };
         return showStatus();
     }
+
 }
